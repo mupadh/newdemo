@@ -11,7 +11,7 @@
                  <repository>
                  <id>github</id>
                  <name>GitHub mupadh Apache Maven Packages</name>
-                 <url>https://maven.pkg.github.com/mupadh/newdemo/github_package</url>
+                 <url>https://maven.pkg.github.com/mupadh/newdemo/</url>
                  </repository>
 </distributionManagement>
 	</parent>
