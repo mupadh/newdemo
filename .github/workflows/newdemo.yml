@@ -5,10 +5,12 @@ on:
     push:
      branches:
       -test
+      -github_package
   
     pull_request:
      branches:
       -test
+      -github_package
   
 jobs:
   build:
