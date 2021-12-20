@@ -27,13 +27,8 @@ jobs:
           
                            - name: Build with Maven
                              run: mvn -X --batch-mode --update-snapshots verify
+                             run: mvn deploy
   
-                           - run: mkdir staging && cp target/*.jar staging
-                           - uses: actions/upload-artifact@v2
-                             with:
-                                 name: Package
-                                 path: staging
-       
                            - name: Cache SonarCloud packages
                              uses: actions/cache@v1
                              with:
