@@ -7,6 +7,13 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
+<distributionManagement>
+                 <repository>
+                 <id>github</id>
+                 <name>GitHub mupadh Apache Maven Packages</name>
+                 <url>https://maven.pkg.github.com/mupadh/newdemo</url>
+                 </repository>
+</distributionManagement>
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>demo</artifactId>
