@@ -9,6 +9,6 @@ For further reference, please consider the following sections:
 
 hello Test
 test
-test git hub
+test git
 
 sonar  test
