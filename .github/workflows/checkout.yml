@@ -1,0 +1,11 @@
+- name: Checkout
+  uses: actions/checkout@v2
+  with:
+    path: main
+
+- name: Checkout private tools
+  uses: actions/checkout@v2
+  with:
+    repository: mupadh/dockertestdemo
+    token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
+    path: dockertestdemo/sample.sh
