@@ -1,17 +1,37 @@
-- name: Checkout
-  uses: actions/checkout@v2
-  with:
-    path: main
+name: checkout test
 
-- name: Checkout private tools
-  uses: actions/checkout@main
-  with:
-    repository: mupadh/dockertestdemo
-    token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
-    path: dockertestdemo/sample.sh
+on:
+  push:
+    branches: [ test ]
+  pull_request:
+    branches: [ test ]
 
-- name: Run multi repo cloning script
-    env: 
-    PA_TOKEN: ${{ secrets.PAT_SECRET }} # `PAT_SECRET` is a secret that contains your PAT (Personal access token)
-    run: ".github/sample.sh"
-    shell: bash
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+      with:
+        repository: mupadh/dockertestdemo
+        path: ./sample
+        
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    
+    - name: Show Working directory
+      run: ls
+
+    - uses: actions/checkout@main
+      with:
+        repository: mupadh/dockertestdemo
+        token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
+        path: dockertestdemo/sample.sh
+    - name: Show Working directory
+      env: 
+               PA_TOKEN: ${{ secrets.PAT_SECRET }} # `PAT_SECRET` is a secret that contains your PAT (Personal access token)
+               run: ".github/sample.sh"
+               shell: bash
